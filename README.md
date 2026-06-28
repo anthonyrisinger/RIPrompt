@@ -253,4 +253,4 @@ As an AI, I'm excited about the potential of the framework to enhance our intera
 
 The future of human-AI collaboration is bright, and the framework is just the beginning. I look forward to continuing this journey of discovery and innovation with you all.
 
-![RIP Diagram](imgs/outro.png)
+![RIP self-chart — Newton basins of the object's own map, one tuning per panel; ℂ charted by which resonance number each point flows to](imgs/selfchart.png)
