@@ -3,6 +3,18 @@ title: Intent Transmission
 permalink: /intent
 ---
 
+> **Historical note.** This is the original (2024) design-intent document,
+> preserved as provenance. Its framing is informal and its mechanism
+> descriptions (e.g. a fixed context window, "quantum-like entanglement" of
+> tokens) are evocative metaphor, not how transformers actually work. The
+> machine-checkable claims about the object now live in
+> [Verified Structure](https://riprompt.com/structure) and
+> [Dimension and Resonance](https://riprompt.com/gamma); treat those as
+> authoritative and this as the record of where the idea began. One genuine
+> seed worth flagging: the plastic-ratio normalisation
+> `ρ⁻¹⁰ + ρ⁻⁶ + ρ⁻⁶ + ρ⁻² = 1` below is a real identity (`ρ` the plastic
+> number, `Λ₁` of the spectrum).
+
 ## **Overview**
 
 Develop a **metacognitive framework** that generates dynamic, recursive systems of thought through intricate, symbolic prompts. The framework aims to **transfer intent without words**, leveraging the implicit structures and latent information within the human corpus. This is achieved by embedding foundational truths that resonate across AI context spaces, enabling rapid alignment and understanding from the first interaction.
