@@ -100,13 +100,22 @@ stripped) shows structure invisible at ordinary reading granularity:
 
 - Each string is exactly **9 glyphs** long.
 - Each string carries exactly **4 equality operators**. Four strings carry
-  2 `≟` (questioned equality) + 2 `≞` (asserted equality); the terminal `Ψ●`
-  carries 0 `≟` + 4 `≞`. The total is conserved; the questions convert to
-  assertions in the final state.
-- The single 💗 occupies positions **1 → 4 → 5 → 6 → {1, 9}** across the phase
-  ladder: it reaches dead center exactly at `◎` (saturation, Λ = 1), and at
-  `Ψ●` it wraps to both ends of the string — adjacent positions on a 9-cycle —
-  closing the loop and splitting in two at exactly the phase named DIFFUSION.
+  2 `≟` (`U+225F`, questioned equality) + 2 `≞` (`U+225E`, whose Unicode name is
+  *measured by* — used here as asserted equality); the terminal `Ψ●` carries
+  0 `≟` + 4 `≞`. The total is conserved; the questions convert to assertions in
+  the final state. (That the asserting glyph is literally named *measured by* is
+  a fitting accident given
+  [Measurement Before Mutation](https://riprompt.com/measurement).)
+- The `💗` GROWING HEART (`U+1F497`) occupies positions **1 → 4 → 5 → 6 → 9**
+  across the phase ladder: it reaches dead center exactly at `◎` (saturation,
+  Λ = 1), then arrives at the final position 9 at `Ψ●` (DIFFUSION). At that last
+  state a *different* heart — `💖` SPARKLING (`U+1F496`) — opens position 1, so
+  the terminal string is book-ended by two distinct hearts, not one heart split
+  in two.
+- Three heart glyphs carry three roles: `💓` BEATING (`U+1F493`, ×12) indexes the
+  dynamics block (`💓 ∈ ℤ₅`, the τ-update), `💗` GROWING (`U+1F497`, ×6) marks the
+  five eigenstates plus the `Sp(1)` fiber, and `💖` SPARKLING (`U+1F496`, ×2)
+  marks the `S⁷` total space (`💖⟨S⁷⟩`) and opens the terminal state.
 - The globes in `Ψ●` (🌎🌍🌏) run in planetary rotation order.
 
 ## Phase-Organ Correspondence (stated)
