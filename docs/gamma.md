@@ -81,6 +81,38 @@ tuned-sphere derivation.
 
 ![One resonance threading every sphere; what Γ does to dimension; the invariant held flat while the radius flows](../imgs/dimension-flow.png)
 
+## The Self-Inversion Dual (derived)
+
+The natural involution on the tones is inversion, `Λ ↦ 1/Λ`, and it is realised
+by the one operation that *defines* CGA — conformal inversion in a sphere.
+**Inversion in the concentric sphere of radius `√n` carries the tuned sphere
+`Sⁿ(√(n/Λ))` to `Sⁿ(√(nΛ))`, turning the fundamental tone `Λ` into `1/Λ`.** That
+inversion radius `√n` is exactly the *unity* tone's own radius `√(n/1)` in the
+same dimension, so the duality is internal to the spectrum:
+
+- the three `S³` states share a single mirror, `S³(√3)` — which is literally the
+  object's `◎ / Λ₂` eigenstate;
+- unity is the **fixed sphere** of its own inversion (`1 ↦ 1`);
+- every other tone is exchanged with its reciprocal across it.
+
+Under the involution the five tones map to the **shadow** `{1/φ, 1/ρ, 1, ψ, σ}`
+(the supergolden `ψ` and supersilver `σ` surface here; see
+[Verified Structure](https://riprompt.com/structure)). The five tones are not
+self-inverse on their own — but **spectrum ∪ shadow is a nine-value set closed
+under inversion**, and on a log (octave) axis it is a perfect palindrome about
+`0`. Inversion is reflection through unity.
+
+The object carries both halves already. Its defining arc builds the spectrum up
+(`∂RIP → ∛RIP → ∫RIP`); its `∈RIP` **praxis** arc runs the *inverse* operators
+`●⁻¹ ◍⁻¹ ◎⁻¹ ○⁻¹ ◌⁻¹` in reversed order — the shadow traversal, terminating on
+`1/φ`, the noble number. So the object is its own self-inversion dual: a forward
+arc and an inverse arc meeting at the unity centre, the whole fixed under
+inversion in the `◎`-sphere. It is the CGA reading made exact — and the sphere
+that inversion swaps with the centre is governed by the same infinity **The
+Archimedean Place** names later.
+
+![The self-inversion dual: the five tones and their inverses, mirror-symmetric about unity on a log axis (inversion = reflection through 1); and the three S³ spheres inverting through the unity sphere S³(√3), the object's ◎ eigenstate](../imgs/self-inversion.png)
+
 ## What Γ Continues, and What It Does Not (derived, with a caveat)
 
 The gamma function governs the *size* of these spheres at continuous dimension:
@@ -404,6 +436,18 @@ assert abs(ratio([1, 1],    [1, 1])    - L[0])   < 1e-9      # Fibonacci   -> ph
 assert abs(ratio([0, 1, 1], [1, 1, 1]) - L[1])   < 1e-9      # Padovan     -> rho   = L1
 assert abs(ratio([1, 0, 1], [1, 1, 1]) - 1/L[3]) < 1e-9      # Narayana    -> psi   = 1/L3
 assert abs(ratio([2, 0, 1], [0, 1, 2]) - 1/L[4]) < 1e-9      # supersilver -> sigma = 1/L4
+
+# 8. self-inversion dual: conformal inversion in the sphere of radius √n
+#    (= the unity-tone radius) sends S^n(√(n/Λ)) -> S^n(√(nΛ)), i.e. Λ -> 1/Λ.
+for n, lam in [(3, L[0]), (3, L[1]), (3, L[2]), (7, L[3]), (4, L[4])]:
+    R = (n / lam) ** 0.5; rho0 = n ** 0.5            # inversion sphere = unity sphere √n
+    assert abs(n / (rho0**2 / R)**2 - 1 / lam) < 1e-12   # inverted tone is 1/Λ
+    assert abs(rho0 - (n / 1) ** 0.5) < 1e-12            # √n is the unity-tone radius
+S9 = L + [1 / x for x in L]; uniq = []                   # spectrum ∪ shadow
+for v in S9:
+    if not any(abs(v - u) < 1e-12 for u in uniq): uniq.append(v)
+assert len(uniq) == 9                                     # 5 + 5 − 1 (unity shared)
+assert all(any(abs(1 / u - w) < 1e-12 for w in uniq) for u in uniq)   # closed under x↦1/x
 
 # 7. the spectrum is arithmetic: each resonance's field signature (r1 real,
 #    r2 complex places) is fixed by its minimal polynomial's discriminant.
