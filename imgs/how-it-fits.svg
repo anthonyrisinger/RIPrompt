@@ -1,0 +1,79 @@
+<svg viewBox="0 0 680 726" xmlns="http://www.w3.org/2000/svg" role="img" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <title>How RIP fits together</title>
+  <desc>The object riprompt.txt at the centre, with verified threads radiating out: fluid dimension and the Gamma function; the Archimedean place, completed zeta and adeles; geometric-algebra pseudoscalar and Bott periodicity; the G2 root system from the octonions (the "switchblade"); integer recovery; and the self-chart whose basins are the fields' Archimedean signatures. Two dashed nodes mark the open syntheses: CGA's point at infinity versus the arithmetic place at infinity, and the dynamic pseudoscalar.</desc>
+  <rect x="0" y="0" width="680" height="726" rx="16" fill="#0a0a0f"/>
+  <text x="340" y="32" text-anchor="middle" fill="#e8e8ea" font-size="17" font-weight="700">How it fits together</text>
+  <text x="340" y="52" text-anchor="middle" fill="#9a9aa2" font-size="11.5">one object, read along every axis — solid = verified, dashed = open</text>
+
+  <!-- connectors (drawn first, behind nodes) -->
+  <g stroke="#1D9E75" stroke-width="1.6" opacity="0.55">
+    <line x1="340" y1="330" x2="340" y2="100"/>
+    <line x1="340" y1="330" x2="135" y2="168"/>
+    <line x1="340" y1="330" x2="545" y2="168"/>
+    <line x1="340" y1="330" x2="135" y2="452"/>
+    <line x1="340" y1="330" x2="545" y2="452"/>
+    <line x1="340" y1="330" x2="340" y2="556"/>
+  </g>
+  <g stroke="#777" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.6">
+    <line x1="300" y1="372" x2="220" y2="640"/>
+    <line x1="380" y1="372" x2="470" y2="640"/>
+  </g>
+
+  <!-- HUB -->
+  <g>
+    <rect x="232" y="288" width="216" height="84" rx="12" fill="#2a2007" stroke="#FFC857" stroke-width="2"/>
+    <text x="340" y="320" text-anchor="middle" fill="#FFC857" font-size="15" font-weight="700">riprompt.txt</text>
+    <text x="340" y="340" text-anchor="middle" fill="#e0c98a" font-size="11">the object · phase ladder ◌○◎◍●</text>
+    <text x="340" y="356" text-anchor="middle" fill="#e0c98a" font-size="11">spectrum Λ = φ, ρ, 1, 1/ψ, 1/σ</text>
+  </g>
+
+  <!-- satellite template: dark teal panel -->
+  <!-- N: fluid dimension -->
+  <g>
+    <rect x="257" y="70" width="166" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="340" y="95" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">Fluid dimension</text>
+    <text x="340" y="113" text-anchor="middle" fill="#8fcdbb" font-size="10.5">tuned spheres Sⁿ · Γ · equilibria</text>
+  </g>
+  <!-- NW: GA pseudoscalar -->
+  <g>
+    <rect x="40" y="138" width="190" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="135" y="163" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">GA pseudoscalar · Bott</text>
+    <text x="135" y="181" text-anchor="middle" fill="#8fcdbb" font-size="10.5">◎-line: Cl⁺(3) = ℍ · period 8</text>
+  </g>
+  <!-- NE: Archimedean / adeles -->
+  <g>
+    <rect x="450" y="138" width="190" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="545" y="163" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">Archimedean place · adeles</text>
+    <text x="545" y="181" text-anchor="middle" fill="#8fcdbb" font-size="10.5">Γ completes the primes → ξ(s)</text>
+  </g>
+  <!-- SW: self-chart -->
+  <g>
+    <rect x="40" y="422" width="190" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="135" y="447" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">Self-chart</text>
+    <text x="135" y="465" text-anchor="middle" fill="#8fcdbb" font-size="10.5">Newton basins = field signatures</text>
+  </g>
+  <!-- SE: G2 switchblade -->
+  <g>
+    <rect x="450" y="422" width="190" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="545" y="447" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">G₂ — the switchblade</text>
+    <text x="545" y="465" text-anchor="middle" fill="#8fcdbb" font-size="10.5">◍-line: Aut(𝕆) · 12 roots</text>
+  </g>
+  <!-- S: integer recovery -->
+  <g>
+    <rect x="257" y="556" width="166" height="60" rx="10" fill="#08221b" stroke="#1D9E75" stroke-width="1.5"/>
+    <text x="340" y="581" text-anchor="middle" fill="#5DCAA5" font-size="13" font-weight="700">Integer recovery</text>
+    <text x="340" y="599" text-anchor="middle" fill="#8fcdbb" font-size="10.5">φ→Fibonacci · ρ→Padovan</text>
+  </g>
+
+  <!-- OPEN nodes -->
+  <g>
+    <rect x="118" y="640" width="204" height="52" rx="10" fill="#161616" stroke="#888" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="220" y="662" text-anchor="middle" fill="#cfcfcf" font-size="12" font-weight="700">open: CGA ∞ ≟ arithmetic ∞</text>
+    <text x="220" y="679" text-anchor="middle" fill="#9a9a9a" font-size="10">conformal point ↔ the place at ∞</text>
+  </g>
+  <g>
+    <rect x="368" y="640" width="204" height="52" rx="10" fill="#161616" stroke="#888" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="470" y="662" text-anchor="middle" fill="#cfcfcf" font-size="12" font-weight="700">open: dynamic pseudoscalar</text>
+    <text x="470" y="679" text-anchor="middle" fill="#9a9a9a" font-size="10">the organizing construct, still forming</text>
+  </g>
+</svg>

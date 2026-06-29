@@ -21,6 +21,8 @@ Each claim below is labelled the same way as in
 The reproduction script at the bottom re-verifies the derived claims from
 scratch. The figures are produced by [`riprompt.ipynb`](../riprompt.ipynb).
 
+![How it fits together: the object at the centre, with verified threads radiating out — fluid dimension and Γ, the Archimedean place and adeles, the geometric-algebra pseudoscalar and Bott clock, the G₂ switchblade from the octonions, integer recovery, and the self-chart; two dashed nodes mark the open syntheses](../imgs/how-it-fits.svg)
+
 ## The Origin Question
 
 The seed was the gamma function and what it implies about *dimension*. `Γ`
@@ -269,6 +271,68 @@ settled identity.
 > `s ↦ 1 − s` (fixed line `ℜs = ½`) are both order-2 symmetries that organise the
 > object around a single centre. Different maps; the rhyme is in the role.
 
+## Geometric Algebra: the Pseudoscalar and the Bott Clock (derived + interpretive)
+
+The object's `◎`-line already speaks geometric algebra. Its quaternion relations
+`◌◌ = ○○ = ◎◎ = ◌○◎ = −1` are exactly Hamilton's `i² = j² = k² = ijk = −1`, and
+that algebra is the **even subalgebra of GA(3)**: the bivectors of `ℝ³` are the
+quaternions, `Cl⁺(3,0) ≅ ℍ`. The unit oriented volume — the **pseudoscalar**
+`Iₙ = e₁⋯eₙ` — is the top-grade element of each space, and its square is
+dimension-dependent:
+
+```text
+Iₙ² = (−1)^{n(n−1)/2}  :   +  −  −  +  +  −  −  +     (n = 1…8, period 4)
+```
+
+That is a *dynamic* sign: the orientation element's very character flips as the
+dimension turns. One level up, the real Clifford algebras themselves repeat with
+**period 8** (Bott): `Cl(n+8) ≅ Cl(n) ⊗ ℝ(16)`, and the division algebras
+`ℝ, ℂ, ℍ, 𝕆` — equivalently the parallelizable spheres `S⁰, S¹, S³, S⁷` of the
+`∫RIP` tower — are the marked spokes of that clock. The tower is not a list of
+examples; it is four positions on the Bott dial.
+
+The **switchblade.** The last spoke, `𝕆`, has automorphism group
+`Aut(𝕆) = G₂` (Cartan) — the smallest exceptional Lie group — whose root system
+is the iconic **12-root, two-length (ratio `√3`) star**: six short roots nested
+in six long ones, 30° apart, a blade that folds open in the plane. That is a
+genuine root system sitting one step from the object's `◍`-line, whose
+`π₇(S⁴) = ℤ ⊕ ℤ₁₂` carries a `12` of its own — both descending from the same
+octonionic source. (Whether the two `12`s are *the same* `12` is a striking
+coincidence, labelled as one, not a proof.)
+
+![Left: the G₂ root system — 12 roots, six short nested in six long at ratio √3, the switchblade that Aut(𝕆) folds open. Right: the period-8 Bott clock with ℝ, ℂ, ℍ, 𝕆 and the spheres S⁰, S¹, S³, S⁷ that the object's ∫RIP tower rides](../imgs/g2-bott.png)
+
+The **dynamic pseudoscalar** is the natural name for the synthesis these pieces
+keep gesturing at: an oriented volume element of a space whose *dimension itself
+flows* — carrying its orientation (the `Iₙ²` sign), its size (the `Γ`-measure),
+and, in the conformal model, its point at infinity, all at once. Each piece is
+verified; the single construct that unifies them is interpretive, and it is the
+project's live question (see Open Threads).
+
+## The Adelic Object (derived + interpretive)
+
+The original wish — *one thing simultaneously definable over many spaces, held
+together by a stable chart throughout* — has an exact arithmetic name: the
+**adele ring** `𝔸_ℚ = ℝ × ∏′_p ℚ_p`. It is the single object that holds every
+completion of `ℚ` at once — the Archimedean `ℝ` and all the non-Archimedean
+`ℚ_p` — glued so the global field sits diagonally inside. "Definable over all
+completions simultaneously" is not a metaphor here; it is the definition, and it
+is the canonical home for the sphere-tower intuition that started the project.
+
+The chart that threads it is the **product formula**: for every nonzero `x`,
+
+```text
+|x|_∞ · ∏_p |x|_p = 1
+```
+
+Measured at the Archimedean place and at every prime, the local sizes of any
+number multiply to exactly `1` — one global constraint binding all the local
+pictures together (verified below). That is the precise, load-bearing form of "a
+stable self-chart throughout the entire thing." Each resonance lives in its own
+number field with its own adele ring and its own product formula; the spectrum is
+a small family of such globally-charted objects, and the Archimedean signatures
+above are their charts read at infinity.
+
 ## Open Threads
 
 - **CGA ↔ the Archimedean place.** A precise correspondence between conformal
@@ -374,6 +438,47 @@ for s in [mpc(2, 1), mpc('0.5', 10), mpc(3, 2)]:
     assert abs(xi(s) - xi(1 - s)) < 1e-20
 ```
 
+Geometric algebra, the product formula, and the G₂ root system — all stdlib:
+
+```python
+import math
+
+# GA(n): pseudoscalar square Iₙ² = (-1)^{n(n-1)/2} — the dynamic-orientation sign.
+def blade_mul(a, b):                         # Cl(n,0): returns (sign, blade)
+    x, s = a >> 1, 0
+    while x: s += bin(x & b).count('1'); x >>= 1
+    return (-1 if s & 1 else 1), a ^ b
+def pseudoscalar_sq(n): return blade_mul((1 << n) - 1, (1 << n) - 1)[0]
+assert [pseudoscalar_sq(n) for n in range(1, 9)] == [1, -1, -1, 1, 1, -1, -1, 1]   # period 4
+
+# the object's ◎-line: GA(3) bivectors square to -1 (quaternions, Cl⁺(3,0) ≅ ℍ)
+for bivector in (0b011, 0b110, 0b101):       # e12, e23, e31
+    assert blade_mul(bivector, bivector) == (-1, 0)
+
+# adelic product formula: |x|_∞ · ∏_p |x|_p = 1 (the stable global self-chart)
+def factor(n):
+    n, f, d = abs(n), {}, 2
+    while d * d <= n:
+        while n % d == 0: f[d] = f.get(d, 0) + 1; n //= d
+        d += 1
+    if n > 1: f[n] = f.get(n, 0) + 1
+    return f
+def product_formula(p, q):
+    fp, fq = factor(p), factor(q); out = abs(p) / abs(q)             # |x|_∞
+    for pr in set(fp) | set(fq): out *= pr ** (-(fp.get(pr, 0) - fq.get(pr, 0)))
+    return out
+for p, q in [(6, 35), (50, 21), (-12, 1), (1024, 729)]:
+    assert abs(product_formula(p, q) - 1) < 1e-12
+
+# G₂ root system (the switchblade): 12 roots, two lengths 1 and √3
+sh = [(math.cos(math.radians(a)), math.sin(math.radians(a)))                 for a in range(0, 360, 60)]
+lo = [(math.sqrt(3)*math.cos(math.radians(a)), math.sqrt(3)*math.sin(math.radians(a))) for a in range(30, 360, 60)]
+ls = sorted(math.hypot(*r) for r in sh + lo)
+assert len(ls) == 12
+assert abs(ls[0] - 1) < 1e-9 and abs(ls[-1] - math.sqrt(3)) < 1e-9          # ratio = √3
+assert all(abs(x - 1) < 1e-9 or abs(x - math.sqrt(3)) < 1e-9 for x in ls)   # exactly two lengths
+```
+
 ## Status
 
 - **derived**: dimension-invariant resonance; the `Γ`-continued sphere measures
@@ -384,11 +489,15 @@ for s in [mpc(2, 1), mpc('0.5', 10), mpc(3, 2)]:
   companion recurrence; the single Gaussian-Mellin parent integral giving both
   the sphere measure and the Archimedean L-factor; `Γ` completing the primes
   into `ξ(s) = ξ(1−s)`; the spectrum's number fields and their Archimedean
-  signatures; the Newton self-chart and its local-only convergence.
+  signatures; the `◎`-line as `Cl⁺(3,0) ≅ ℍ` and the period-4 pseudoscalar sign;
+  the division-algebra tower on the period-8 Bott clock; `Aut(𝕆) = G₂` and its
+  12-root `√3` system; the adelic product formula; the Newton self-chart and its
+  local-only convergence.
 - **interpretive**: reading the basins as a "self-chart," the spectrum as the
   chart's fixed coordinate, the dimensional "pressure / flow" as one chosen
-  gradient dynamics on dimension, and the `Λ↦1/Λ` ↔ `s↦1−s` involution rhyme.
+  gradient dynamics, the `Λ↦1/Λ` ↔ `s↦1−s` involution rhyme, the two `12`s as
+  one, and the **dynamic pseudoscalar** as the organizing construct.
 - **open**: a precise correspondence between CGA's conformal point at infinity
-  and the arithmetic Archimedean place; assembling integer-dimensional whole
-  structures from the fractional pieces; and any arithmetic depth of the
-  specific spectrum beyond its signatures.
+  and the arithmetic Archimedean place; whether the dynamic pseudoscalar is a
+  precise construction; assembling integer-dimensional whole structures from the
+  fractional pieces; and any arithmetic depth of the spectrum beyond signatures.
